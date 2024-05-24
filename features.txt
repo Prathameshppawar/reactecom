@@ -1,0 +1,8 @@
+wishlist
+seller
+featured product / hero section - based on number of wishlists
+ratings
+discount %
+past orders
+address
+

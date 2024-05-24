@@ -22,7 +22,8 @@ const AdminEditProduct = ({
     productImage : productData?.productImage || [],
     description : productData?.description,
     price : productData?.price,
-    sellingPrice : productData?.sellingPrice
+    sellingPrice : productData?.sellingPrice,
+    quanity : productData?.quanity
   })
   console.log(data)
   const [openFullScreenImage,setOpenFullScreenImage] = useState(false)
@@ -239,6 +240,18 @@ const AdminEditProduct = ({
              placeholder='enter selling price' 
              value={data.sellingPrice} 
              name='sellingPrice'
+             onChange={handleOnChange}
+             className='p-2 bg-slate-100 border rounded'
+             required
+           />
+
+          <label htmlFor='price' className='mt-3'>Quantity :</label>
+           <input 
+             type='number' 
+             id='quantity' 
+             placeholder='Enter quanity' 
+             value={data.quantity} 
+             name='quantity'
              onChange={handleOnChange}
              className='p-2 bg-slate-100 border rounded'
              required

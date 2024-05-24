@@ -211,6 +211,17 @@ const UploadProduct = ({
                 className='p-2 bg-slate-100 border rounded'
                 required
               />
+              <label htmlFor='price' className='mt-3'>Quantity :</label>
+              <input 
+                type='number' 
+                id='quantity' 
+                placeholder='Enter quanity' 
+                value={data.quantity} 
+                name='quantity'
+                onChange={handleOnChange}
+                className='p-2 bg-slate-100 border rounded'
+                required
+              />
 
               <label htmlFor='description' className='mt-3'>Description :</label>
               <textarea 
