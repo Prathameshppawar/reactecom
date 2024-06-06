@@ -101,7 +101,7 @@ const SignUp = () => {
                               <div className='bg-slate-100 p-2'>
                                   <input 
                                       type='text' 
-                                      placeholder='enter your name' 
+                                      placeholder='Enter your name' 
                                       name='name'
                                       value={data.name}
                                       onChange={handleOnChange}
@@ -114,7 +114,7 @@ const SignUp = () => {
                             <div className='bg-slate-100 p-2'>
                                 <input 
                                     type='email' 
-                                    placeholder='enter email' 
+                                    placeholder='Enter email' 
                                     name='email'
                                     value={data.email}
                                     onChange={handleOnChange}
@@ -128,7 +128,7 @@ const SignUp = () => {
                             <div className='bg-slate-100 p-2 flex'>
                                 <input 
                                     type={showPassword ? "text" : "password"} 
-                                    placeholder='enter password'
+                                    placeholder='Enter password'
                                     value={data.password}
                                     name='password' 
                                     onChange={handleOnChange}
@@ -155,7 +155,7 @@ const SignUp = () => {
                             <div className='bg-slate-100 p-2 flex'>
                                 <input 
                                     type={showConfirmPassword ? "text" : "password"} 
-                                    placeholder='enter confirm password'
+                                    placeholder='Enter confirm password'
                                     value={data.confirmPassword}
                                     name='confirmPassword' 
                                     onChange={handleOnChange}

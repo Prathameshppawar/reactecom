@@ -1,8 +1,10 @@
-wishlist
 seller
 featured product / hero section - based on number of wishlists
-ratings
 discount %
+
+ratings
+wishlist
 past orders
 address
-
+manage profile
+notifications

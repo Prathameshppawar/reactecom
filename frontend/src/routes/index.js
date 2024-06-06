@@ -11,7 +11,7 @@ import CategoryProduct from '../pages/CategoryProduct'
 import ProductDetails from '../pages/ProductDetails'
 import Cart from '../pages/Cart'
 import SearchProduct from '../pages/SearchProduct'
-
+import Wishlist from '../pages/Wishlist'
 const router = createBrowserRouter([
     {
         path : "/",
@@ -50,6 +50,10 @@ const router = createBrowserRouter([
                 element : <SearchProduct/>
             },
             {
+                path : "wishlist",
+                element : <Wishlist/>
+            },
+            {
                 path : "admin-panel",
                 element : <AdminPanel/>,
                 children : [
@@ -59,6 +63,10 @@ const router = createBrowserRouter([
                     },
                     {
                         path : "all-products",
+                        element : <AllProducts/>
+                    },
+                    {
+                        path : "seller-requests",
                         element : <AllProducts/>
                     }
                 ]

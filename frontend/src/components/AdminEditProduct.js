@@ -142,7 +142,7 @@ const AdminEditProduct = ({
          <input 
            type='text' 
            id='productName' 
-           placeholder='enter product name' 
+           placeholder='Enter product name' 
            name='productName'
            value={data.productName} 
            onChange={handleOnChange}
@@ -155,7 +155,7 @@ const AdminEditProduct = ({
          <input 
            type='text' 
            id='brandName' 
-           placeholder='enter brand name' 
+           placeholder='Enter brand name' 
            value={data.brandName} 
            name='brandName'
            onChange={handleOnChange}
@@ -224,7 +224,7 @@ const AdminEditProduct = ({
            <input 
              type='number' 
              id='price' 
-             placeholder='enter price' 
+             placeholder='Enter price' 
              value={data.price} 
              name='price'
              onChange={handleOnChange}
@@ -237,7 +237,7 @@ const AdminEditProduct = ({
            <input 
              type='number' 
              id='sellingPrice' 
-             placeholder='enter selling price' 
+             placeholder='Enter selling price' 
              value={data.sellingPrice} 
              name='sellingPrice'
              onChange={handleOnChange}
@@ -260,7 +260,7 @@ const AdminEditProduct = ({
            <label htmlFor='description' className='mt-3'>Description :</label>
            <textarea 
              className='h-28 bg-slate-100 border resize-none p-1' 
-             placeholder='enter product description' 
+             placeholder='Enter product description' 
              rows={3} 
              onChange={handleOnChange}
              name='description'

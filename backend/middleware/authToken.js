@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken')
 async function authToken(req,res,next){
     try{
         const token = req.cookies?.token
-
-        console.log("token",token)
+        // console.log('auth called')
         if(!token){
             return res.status(200).json({
                 message : "Please Login...!",
@@ -12,10 +11,10 @@ async function authToken(req,res,next){
                 success : false
             })
         }
+        else{
+        }
 
         jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
-            console.log(err)
-            console.log("decoded",decoded)
             
             if(err){
                 console.log("error auth", err)
@@ -34,6 +33,7 @@ async function authToken(req,res,next){
             error : true,
             success : false
         })
+        console.log('moved to error')
     }
 }
 

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
+import { IoMdHeart } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -74,11 +75,12 @@ const Header = () => {
             <div className='flex items-center gap-7'>
                 
                 <div className='relative flex justify-center'>
-                  {
+                  {/* {
                     user?.role === ROLE.GENERAL && (
                       <Link to={"/becomeseller"} className='whitespace-nowrap hidden bg-yellow-100 md:block hover:bg-slate-100 p-2 mx-4 rounded-xl' onClick={()=>setMenuDisplay(preve => !preve)}>Become a seller</Link>
                     )
-                  }
+                  } */}
+
 
                   {
                     user?._id && (
@@ -139,6 +141,14 @@ const Header = () => {
                   }
                  
                 </div>
+                {
+                     user?._id && (
+                      <Link to={"/wishlist"} className='text-2xl relative'>
+                          <span><IoMdHeart /></span>
+      
+                      </Link>
+                      )
+                  }
 
                   {
                      user?._id && (

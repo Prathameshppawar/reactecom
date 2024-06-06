@@ -1,6 +1,6 @@
 const productCategory = [
     { id : 1, label : "Electronics", value : "electronics"},
-    { id : 2, label : "Mobiles, Computers", value : "mobcom"},
+    { id : 2, label : "Mobiles & Computers", value : "mobcom"},
     { id : 3, label : "Books", value : "books"},
     { id : 4, label : "Men's fashion", value : "mensfashion"},
     { id : 5, label : "Women's fashion", value : "womensfashion"},

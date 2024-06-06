@@ -8,7 +8,8 @@ import VerticalCardProduct from '../components/VerticalCardProduct';
 import CategroyWiseProductDisplay from '../components/CategoryWiseProductDisplay';
 import addToCart from '../helpers/addToCart';
 import Context from '../context';
-
+import addtoWishlist from '../helpers/addtoWishlist';
+import Heart from "react-animated-heart";
 const ProductDetails = () => {
   const [data,setData] = useState({
     productName : "",
@@ -19,6 +20,7 @@ const ProductDetails = () => {
     price : "",
     sellingPrice : ""
   })
+  const [isClick, setClick] = useState(false);
   const params = useParams()
   const [loading,setLoading] = useState(true)
   const productImageListLoading = new Array(4).fill(null)
@@ -84,6 +86,12 @@ const ProductDetails = () => {
 
   const handleAddToCart = async(e,id) =>{
     await addToCart(e,id)
+    fetchUserAddToCart()
+  }
+
+  const handleAddtoWishlist = async(e,id) =>{
+    await addtoWishlist(e,id)
+    setClick(!isClick)
     fetchUserAddToCart()
   }
 
@@ -190,7 +198,7 @@ const ProductDetails = () => {
                 <h2 className='text-2xl lg:text-4xl font-medium'>{data?.productName}</h2>
                 <p className='capitalize text-slate-400'>{data?.category}</p>
 
-                <div className='text-red-600 flex items-center gap-1'>
+                <div className='text-yellow-300 flex items-center gap-1'>
                     <FaStar/>
                     <FaStar/>
                     <FaStar/>
@@ -206,8 +214,9 @@ const ProductDetails = () => {
                 <div className='flex items-center gap-3 my-2'>
                   <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] text-red-600 font-medium hover:bg-red-600 hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Buy</button>
                   <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-red-600 hover:text-red-600 hover:bg-white' onClick={(e)=>handleAddToCart(e,data?._id)}>Add To Cart</button>
+                  {/* <button className='border-2 border-red-200 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-custom-orange hover:text-custom-orange hover:bg-white' onClick={(e)=>handleAddtoWishlist(e,data?._id)}>Wishlist Item</button> */}
+                  <Heart isClick={isClick} onClick={(e)=>handleAddtoWishlist(e,data?._id)} />
                 </div>
-
                 <div>
                   <p className='text-slate-600 font-medium my-1'>Description : </p>
                   <p>{data?.description}</p>

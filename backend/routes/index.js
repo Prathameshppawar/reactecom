@@ -23,9 +23,11 @@ const updateAddToCartProduct = require('../controller/user/updateAddToCartProduc
 const deleteAddToCartProduct = require('../controller/user/deleteAddToCartProduct')
 const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
-
-
-
+const sellerRequestController = require('../controller/user/sellerRequest')
+const makePaymentController= require('../controller/user/makePayment')
+const wishlistController= require('../controller/user/addtoWishlist')
+const viewWishlistController= require('../controller/user/viewWishlist')
+const deleteWishlistController= require('../controller/user/deleteWishlistProduct')
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
@@ -34,6 +36,7 @@ router.get("/userLogout",userLogout)
 //admin panel 
 router.get("/all-user",authToken,allUsers)
 router.post("/update-user",authToken,updateUser)
+router.post('/seller-request', authToken, sellerRequestController)
 
 //product
 router.post("/upload-product",authToken,UploadProductController)
@@ -46,17 +49,16 @@ router.get("/search",searchProduct)
 router.post("/filter-product",filterProductController)
 router.delete('/delete-product', authToken, deleteProductController)
 
-//user add to cart
+//user add to cart & wislist
 router.post("/addtocart",authToken,addToCartController)
+router.post("/addtowishlist", authToken, wishlistController)
 router.get("/countAddToCartProduct",authToken,countAddToCartProduct)
 router.get("/view-card-product",authToken,addToCartViewProduct)
+router.get("/viewwishlist", authToken, viewWishlistController)
+router.post("/deletewishlistproduct", authToken, deleteWishlistController)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
-
-
-
-
-
+router.post("/makepayment", makePaymentController)
 
 
 module.exports = router

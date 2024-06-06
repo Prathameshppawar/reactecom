@@ -57,6 +57,18 @@ const SummaryApi = {
         url : `${backendDomin}/api/addtocart`,
         method : 'post'
     },
+    addtoWishlist : {
+        url : `${backendDomin}/api/addtowishlist`,
+        method : 'post'
+    },
+    viewwishlist: {
+        url: `${backendDomin}/api/viewwishlist`,
+        method: 'get'
+    },
+    deleteWishlistProduct: {
+        url: `${backendDomin}/api/deletewishlistproduct`,
+        method: 'post'
+    },
     addToCartProductCount : {
         url : `${backendDomin}/api/countAddToCartProduct`,
         method : 'get'
