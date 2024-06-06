@@ -8,3 +8,7 @@ past orders
 address
 manage profile
 notifications
+
+
+carousel
+hover on left nav

@@ -129,21 +129,22 @@ const Cart = () => {
             body:JSON.stringify(body)
         });
 
-        // const session = await response.json();
+        const session = await response.json();
 
-        // const result = stripe.redirectToCheckout({
-        //     sessionId:session.id
-        // });
+        const result = stripe.redirectToCheckout({
+            sessionId:session.id
+        });
+        // console.log(result)  
         
-        // if(result.error){
-        //     console.log(result.error);
-        // }
+        if(result.error){
+            console.log(result.error);
+        }
 
     }
 
     const totalQty = data.reduce((previousValue,currentValue)=> previousValue + currentValue.quantity,0)
     const totalPrice = data.reduce((preve,curr)=> preve + (curr.quantity * curr?.productId?.sellingPrice) ,0)
-    console.log(data)
+    // console.log(data)
   return (
     <div className='container mx-auto'>
         

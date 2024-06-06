@@ -3,7 +3,7 @@ const addToCartModel = require("../../models/cartProduct")
 const addToCartViewProduct = async(req,res)=>{
     try{
         const currentUser = req.userId
-
+        console.log(currentUser)
         const allProduct = await addToCartModel.find({
             userId : currentUser
         }).populate("productId")
