@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
-
+import {VALIDATOR_TYPE_EMAIL} from '../components/Validator'
 const Login = () => {
     const [showPassword,setShowPassword] = useState(false)
     const [data,setData] = useState({
@@ -79,7 +79,7 @@ const Login = () => {
                                     name='email'
                                     value={data.email}
                                     onChange={handleOnChange}
-                                    className='w-full h-full outline-none bg-transparent'/>
+                                    className='w-full h-full outline-none bg-transparent' VALIDATOR_TYPE_EMAIL />
                             </div>
                         </div>
 

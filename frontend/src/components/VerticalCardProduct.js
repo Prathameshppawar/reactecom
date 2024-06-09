@@ -11,7 +11,7 @@ const VerticalCardProduct = ({category, heading}) => {
     const [loading,setLoading] = useState(true)
     const loadingList = new Array(13).fill(null)
 
-    const [scroll,setScroll] = useState(0)
+    // const [scroll,setScroll] = useState(0)
     const scrollElement = useRef()
 
     const { fetchUserAddToCart } = useContext(Context)
@@ -50,15 +50,15 @@ const VerticalCardProduct = ({category, heading}) => {
                 
            <div className='flex items-center gap-4 md:gap-6 overflow-x-scroll scrollbar-none transition-all' ref={scrollElement}>
 
-            <button  className='bg-white shadow-md rounded-full p-1 absolute left-0 text-lg hidden md:block' onClick={scrollLeft}><FaAngleLeft/></button>
-            <button  className='bg-white shadow-md rounded-full p-1 absolute right-0 text-lg hidden md:block' onClick={scrollRight}><FaAngleRight/></button> 
+            <button  className='bg-white shadow-md rounded-full p-1 z-30 mx-3 absolute left-0 text-lg hidden md:block' onClick={scrollLeft}><FaAngleLeft/></button>
+            <button  className='bg-white shadow-md rounded-full p-1 z-30 mx-3 absolute right-0 text-lg hidden md:block' onClick={scrollRight}><FaAngleRight/></button> 
 
            {
 
                 loading ? (
                     loadingList.map((product,index)=>{
                         return(
-                            <div className='w-full min-w-[280px]  md:min-w-[320px] max-w-[280px] md:max-w-[320px]  bg-white rounded-sm shadow '>
+                            <div className='w-full min-w-[280px] mx-3 px-3 md:min-w-[320px] max-w-[280px] md:max-w-[320px]  bg-white rounded-sm shadow '>
                                 <div className='bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center animate-pulse'>
                                 </div>
                                 <div className='p-4 grid gap-3'>

@@ -11,4 +11,4 @@ notifications
 
 
 carousel
-hover on left nav
+hover on left  nav

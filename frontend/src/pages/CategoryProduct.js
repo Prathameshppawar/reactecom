@@ -98,21 +98,22 @@ const CategoryProduct = () => {
        {/***desktop version */}
        <div className='hidden lg:grid grid-cols-[200px,1fr]'>
            {/***left side */}
-           <div className='bg-white p-2 min-h-[calc(100vh-120px)] overflow-y-scroll'>
+           <div className='bg-white p-2 min-h-[calc(100vh-120px)] overflow-hidden '>
                 {/**sort by */}
                 <div className=''>
                     <h3 className='text-base uppercase font-medium text-slate-500 border-b pb-1 border-slate-300'>Sort by</h3>
 
                     <form className='text-sm flex flex-col gap-2 py-2'>
-                        <div className='flex items-center gap-3'>
-                          <input type='radio' name='sortBy' checked={sortBy === 'asc'} onChange={handleOnChangeSortBy} value={"asc"}/>
-                          <label>Price - Low to High</label>
-                        </div>
+                    <div className={`flex items-center gap-3 hover:shadow-lg ${sortBy === 'asc' ? 'bg-yellow-200' : ''}`}>
+                      <input type='radio' name='sortBy' checked={sortBy === 'asc'} onChange={handleOnChangeSortBy} value={"asc"} />
+                      <label>Price - Low to High</label>
+                    </div>
 
-                        <div className='flex items-center gap-3'>
-                          <input type='radio' name='sortBy' checked={sortBy === 'dsc'} onChange={handleOnChangeSortBy} value={"dsc"}/>
-                          <label>Price - High to Low</label>
-                        </div>
+                    <div className={`flex items-center gap-3 hover:shadow-lg ${sortBy === 'dsc' ? 'bg-yellow-200' : ''}`}>
+                      <input type='radio' name='sortBy' checked={sortBy === 'dsc'} onChange={handleOnChangeSortBy} value={"dsc"} />
+                      <label>Price - High to Low</label>
+                    </div>
+
                     </form>
                 </div>
 
@@ -125,10 +126,11 @@ const CategoryProduct = () => {
                         {
                           productCategory.map((categoryName,index)=>{
                             return(
-                              <div className='flex items-center gap-3'>
-                                 <input type='checkbox' name={"category"} checked={selectCategory[categoryName?.value]} value={categoryName?.value} id={categoryName?.value} onChange={handleSelectCategory} />
-                                 <label htmlFor={categoryName?.value}>{categoryName?.label}</label>
+                              <div className={`flex items-center gap-3 hover:shadow-lg ${selectCategory[categoryName?.value] ? 'bg-orange-100' : ''}`}>
+                                <input type='checkbox' name={"category"} checked={selectCategory[categoryName?.value]} value={categoryName?.value} id={categoryName?.value} onChange={handleSelectCategory} />
+                                <label htmlFor={categoryName?.value}>{categoryName?.label}</label>
                               </div>
+
                             )
                           })
                         }
@@ -143,7 +145,7 @@ const CategoryProduct = () => {
             <div className='px-4'>
               <p className='font-medium text-slate-800 text-lg my-2'>Search Results : {data.length}</p>
 
-             <div className='min-h-[calc(100vh-120px)] overflow-y-scroll max-h-[calc(100vh-120px)]'>
+             <div className='min-h-[calc(100vh-120px)] overflow-hidden max-h-[calc(100vh-120px)]'>
               {
                   data.length !== 0 && !loading && (
                     <VerticalCard data={data} loading={loading}/>

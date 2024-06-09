@@ -12,6 +12,8 @@ import ProductDetails from '../pages/ProductDetails'
 import Cart from '../pages/Cart'
 import SearchProduct from '../pages/SearchProduct'
 import Wishlist from '../pages/Wishlist'
+import Cancel from '../pages/cancelPayment'
+import Success from '../pages/successPayment'
 const router = createBrowserRouter([
     {
         path : "/",
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
             {
                 path : "wishlist",
                 element : <Wishlist/>
+            },
+            {
+                path : "cancel",
+                element : <Cancel/>
+            },
+            {
+                path : "success",
+                element : <Success/>
             },
             {
                 path : "admin-panel",
