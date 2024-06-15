@@ -163,7 +163,7 @@ const Cart = () => {
                         loading ? (
                             loadingCart?.map((el,index) => {
                                 return(
-                                    <div key={el+"Add To Cart Loading"+index} className='w-full bg-slate-200 h-32 my-2 border border-slate-300 animate-pulse rounded'>
+                                    <div key={el+"Add To Bag Loading"+index} className='w-full bg-slate-200 h-32 my-2 border border-slate-300 animate-pulse rounded'>
                                     </div>
                                 )
                             })

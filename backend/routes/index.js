@@ -28,6 +28,11 @@ const makePaymentController= require('../controller/user/makePayment')
 const wishlistController= require('../controller/user/addtoWishlist')
 const viewWishlistController= require('../controller/user/viewWishlist')
 const deleteWishlistController= require('../controller/user/deleteWishlistProduct')
+const buyPaymentController= require('../controller/user/buyPayment')
+
+
+
+
 router.post("/signup",userSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
@@ -59,6 +64,7 @@ router.post("/deletewishlistproduct", authToken, deleteWishlistController)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 router.post("/makepayment", makePaymentController)
+router.post("/buypayment", buyPaymentController)
 
 
 module.exports = router

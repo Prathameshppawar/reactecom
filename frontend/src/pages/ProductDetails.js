@@ -9,7 +9,10 @@ import CategroyWiseProductDisplay from '../components/CategoryWiseProductDisplay
 import addToCart from '../helpers/addToCart';
 import Context from '../context';
 import addtoWishlist from '../helpers/addtoWishlist';
+import { CiHeart } from "react-icons/ci";
 import Heart from "react-animated-heart";
+import {loadStripe} from '@stripe/stripe-js';
+
 const ProductDetails = () => {
   const [data,setData] = useState({
     productName : "",
@@ -96,9 +99,33 @@ const ProductDetails = () => {
   }
 
   const handleBuyProduct = async(e,id)=>{
-    await addToCart(e,id)
-    fetchUserAddToCart()
-    navigate("/cart")
+    // await addToCart(e,id)
+    // fetchUserAddToCart()
+    // navigate("/cart")
+    const stripe = await loadStripe('pk_test_51PM5SBISjyo5uhiTxU2lOJvI9fyNJS4NpdCnPZE56cU0yIBTJz3ZG9Z5aADGZ7F0HwjKcH0hawqDblZLnhzTcxwa00sm6gJL3T');
+        const body = {
+            products:data
+        }
+        const headers = {
+            "Content-Type":"application/json"
+        }
+
+        const response = await fetch("http://localhost:8080/api/buypayment",{
+            method:"POST",
+            headers:headers,
+            body:JSON.stringify(body)
+        });
+
+        const session = await response.json();
+
+        const result = stripe.redirectToCheckout({
+            sessionId:session.id
+        });
+        // console.log(result)  
+        
+        if(result.error){
+            console.log(result.error);
+        }
 
   }
 
@@ -109,13 +136,13 @@ const ProductDetails = () => {
           {/***product Image */}
           <div className='h-96 flex flex-col lg:flex-row-reverse gap-4'>
 
-              <div className='h-[300px] w-[300px] lg:h-96 lg:w-96 bg-slate-200 relative p-2'>
+              <div className='h-[300px] w-[300px] lg:h-96 lg:w-96  relative p-2'>
                   <img src={activeImage} className='h-full w-full object-scale-down mix-blend-multiply' onMouseMove={handleZoomImage} onMouseLeave={handleLeaveImageZoom}/>
 
                     {/**product zoom */}
                     {
                       zoomImage && (
-                        <div className='hidden lg:block absolute min-w-[500px] overflow-hidden min-h-[400px] bg-slate-200 p-1 -right-[510px] top-0'>
+                        <div className='hidden lg:block absolute min-w-[500px] overflow-hidden min-h-[400px] bg-slate-50 p-1 -right-[510px] top-0'>
                           <div
                             className='w-full h-full min-h-[400px] min-w-[500px] mix-blend-multiply scale-150'
                             style={{
@@ -152,7 +179,7 @@ const ProductDetails = () => {
                         {
                           data?.productImage?.map((imgURL,index) =>{
                             return(
-                              <div className='h-20 w-20 bg-slate-200 rounded p-1' key={imgURL}>
+                              <div className='h-20 w-20  rounded p-1' key={imgURL}>
                                 <img src={imgURL} className='w-full h-full object-scale-down mix-blend-multiply cursor-pointer' onMouseEnter={()=>handleMouseEnterProduct(imgURL)}  onClick={()=>handleMouseEnterProduct(imgURL)}/>
                               </div>
                             )
@@ -198,24 +225,25 @@ const ProductDetails = () => {
                 <h2 className='text-2xl lg:text-4xl font-medium'>{data?.productName}</h2>
                 <p className='capitalize text-slate-400'>{data?.category}</p>
 
-                <div className='text-yellow-300 flex items-center gap-1'>
+                {/* <div className='text-yellow-300 flex items-center gap-1'>
                     <FaStar/>
                     <FaStar/>
                     <FaStar/>
                     <FaStar/>
                     <FaStarHalf/>
-                </div>
+                </div> */}
 
                 <div className='flex items-center gap-2 text-2xl lg:text-3xl font-medium my-1'>
-                  <p className='text-red-600'>{displayINRCurrency(data.sellingPrice)}</p>
-                  <p className='text-slate-400 line-through'>{displayINRCurrency(data.price)}</p>
+                  <p className='text-green-500'>{displayINRCurrency(data.sellingPrice)}</p>
+                  <p className='text-red-500 line-through'>{displayINRCurrency(data.price)}</p>
                 </div>
 
                 <div className='flex items-center gap-3 my-2'>
-                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] text-red-600 font-medium hover:bg-red-600 hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Buy</button>
-                  <button className='border-2 border-red-600 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-red-600 hover:text-red-600 hover:bg-white' onClick={(e)=>handleAddToCart(e,data?._id)}>Add To Cart</button>
-                  {/* <button className='border-2 border-red-200 rounded px-3 py-1 min-w-[120px] font-medium text-white bg-custom-orange hover:text-custom-orange hover:bg-white' onClick={(e)=>handleAddtoWishlist(e,data?._id)}>Wishlist Item</button> */}
-                  <Heart isClick={isClick} onClick={(e)=>handleAddtoWishlist(e,data?._id)} />
+                  <button className='border-2 border-custom-blue rounded px-3 py-1 min-w-[120px] text-cusotm-blue font-medium hover:bg-custom-blue hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Buy</button>
+                  <button className='border-2  rounded px-3 py-1 min-w-[120px] font-medium text-white bg-blue-600 hover: hover:bg-custom-orange' onClick={(e)=>handleAddToCart(e,data?._id)}>Add To Bag</button>
+                  <button className='text-2xl px-2' onClick={(e)=>handleAddtoWishlist(e,data?._id)}><CiHeart /></button>
+                  {/* <Heart isClick={isClick} onClick={(e)=>handleAddtoWishlist(e,data?._id)} /> */}
+                  {/* <CiHeart className='' /> */}
                 </div>
                 <div>
                   <p className='text-slate-600 font-medium my-1'>Description : </p>

@@ -2,7 +2,11 @@ import React, { useContext, useState } from 'react'
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { IoMdHeart } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+
 import { FaShoppingCart } from "react-icons/fa";
+import { FcBusinessman } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SummaryApi from '../common';
@@ -64,10 +68,10 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className='hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2'>
-                <input type='text' placeholder='Search ' className='w-full outline-none' onChange={handleSearch} value={search}/>
-                <div className='text-lg hover:cursor-pointer min-w-[50px] h-8 bg-blue-900 flex items-center justify-center rounded-r-full text-white'>
-                  <GrSearch />
+            <div className='hidden lg:flex items-center border-custom-orange w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2'>
+                <input type='text' placeholder='Search ' className='w-full outline-none px-5' onChange={handleSearch} value={search}/>
+                <div className='text-lg hover:cursor-pointer min-w-[50px] h-8  flex items-center justify-center rounded-r-full text-white'>
+                  {/* <GrSearch /> */}
                 </div>
             </div>
 
@@ -84,12 +88,15 @@ const Header = () => {
 
                   {
                     user?._id && (
-                      <div className='text-3xl cursor-pointer relative flex justify-center' onClick={()=>setMenuDisplay(preve => !preve)}>
+                      <div className='text-3xl cursor-pointer relative flex justify-center' onClick={()=>setMenuDisplay(preve => !preve)} title='Profile Options'>
                         {
                           user?.profilePic ? (
                             <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
                           ) : (
-                            <FaRegCircleUser/>
+                            // <FaRegCircleUser/>
+                            // <PiUserFill />
+                            // <ProfilePic />
+                            <FcBusinessman />
                           )
                         }
                       </div>
@@ -143,8 +150,11 @@ const Header = () => {
                 </div>
                 {
                      user?._id && (
-                      <Link to={"/wishlist"} className='text-2xl relative'>
-                          <span><IoMdHeart /></span>
+                      <Link to={"/wishlist"} className='text-2xl relative' title='Wishlist'>
+                          <span>
+                            {/* <IoMdHeart /> */}
+                            <CiHeart />
+                          </span>
       
                       </Link>
                       )
@@ -152,8 +162,8 @@ const Header = () => {
 
                   {
                      user?._id && (
-                      <Link to={"/cart"} className='text-2xl relative'>
-                          <span><FaShoppingCart/></span>
+                      <Link to={"/cart"} className='text-2xl relative ' title='Cart'>
+                          <span><HiOutlineShoppingBag /></span>
       
                           <div className='bg-red-600 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center absolute -top-2 -right-3'>
                               <p className='text-sm'>{context?.cartProductCount}</p>
@@ -167,10 +177,10 @@ const Header = () => {
                 <div>
                   {
                     user?._id  ? (
-                      <button onClick={handleLogout} className='px-3 py-1 rounded-full text-white bg-custom-orange hover:bg-red-700'>Logout</button>
+                      <button onClick={handleLogout} className='px-3 py-1 rounded-full text-white bg-custom-orange hover:bg-red-600'>Logout</button>
                     )
                     : (
-                    <Link to={"/login"} className='px-3 py-1 rounded-full text-white bg-red-600 hover:bg-red-700'>Login</Link>
+                    <Link to={"/login"} className='px-3 py-1 rounded-full text-white bg-custom-orange hover:bg-blue-700'>Login</Link>
                     )
                   }
                     

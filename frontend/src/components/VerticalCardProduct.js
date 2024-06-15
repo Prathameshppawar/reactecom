@@ -45,7 +45,7 @@ const VerticalCardProduct = ({category, heading}) => {
   return (
     <div className='container mx-auto px-4 my-6 relative'>
 
-            <h2 className='text-2xl font-semibold py-4'>{heading}</h2>
+            <h2 className='text-2xl  font-serif py-4'>{heading}</h2>
 
                 
            <div className='flex items-center gap-4 md:gap-6 overflow-x-scroll scrollbar-none transition-all' ref={scrollElement}>
@@ -75,24 +75,26 @@ const VerticalCardProduct = ({category, heading}) => {
                     })
                 ) : (
                     data.map((product,index)=>{
+                        
                         return(
                             <Link
-      to={"product/" + product?._id}
-      className='w-full min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] bg-white rounded-sm shadow hover:scale-105 shadow-lg transition-shadow'>
-                                <div className='bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center'>
+                                to={"product/" + product?._id}
+                                className='w-full border-2 border-slate-100 min-w-[280px] md:min-w-[320px] max-w-[280px] md:max-w-[320px] bg-white rounded-sm hover:shadow-lg transition-shadow'>
+                                <div className='  h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center'>
                                     <img src={product.productImage[0]} className='object-scale-down h-full hover:scale-110 transition-all mix-blend-multiply'/>
                                 </div>
-                                <div className='p-4 grid gap-3'>
+                                <div className='bg-slate-100 p-4 grid gap-3'>
                                     <h2 className='font-medium text-base md:text-lg text-ellipsis line-clamp-1 text-black'>{product?.productName}</h2>
-                                    <p className='capitalize text-slate-500'>{product?.category}</p>
+                                    <p className='capitalize text-slate-500'>{product?.brandName}</p>
                                     <div className='flex gap-3'>
-                                        <p className='text-red-600 font-medium'>{ displayINRCurrency(product?.sellingPrice) }</p>
-                                        <p className='text-slate-500 line-through'>{ displayINRCurrency(product?.price)  }</p>
+                                        <p className='text-green-600 font-medium'>{ displayINRCurrency(product?.sellingPrice) }</p>
+                                        <p className='text-red-500 line-through'>{ displayINRCurrency(product?.price)  }</p>
                                     </div>
-                                    <button className='text-sm bg-red-500 hover:bg-custom-orange text-white px-1 py-1 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Add to Cart</button>
+                                    <button className='text-sm  bg-blue-600 hover:bg-custom-orange text-white px-1 py-1 rounded-full ' onClick={(e)=>handleAddToCart(e,product?._id)}>Add to Bag</button>
                                 </div>
                             </Link>
                         )
+                        
                     })
                 )
                 

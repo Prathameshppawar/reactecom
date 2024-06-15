@@ -12,3 +12,15 @@ notifications
 
 carousel
 hover on left  nav
+
+profile pic
+right 3 icons
+footer icon social links
+
+
+What new has been done
+Buy option takes to stripe checkout
+UI updates at home, search product
+Product details image update
+Search products was showing the database names, gave it back sane names
+in vertical card product, we can remove the border, that also looks great

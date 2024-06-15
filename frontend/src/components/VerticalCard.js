@@ -13,7 +13,7 @@ const VerticalCard = ({loading,data = []}) => {
        await addToCart(e,id)
        fetchUserAddToCart()
     }
-
+    
   return (
     <div className='grid grid-cols-[repeat(auto-fit,minmax(260px,300px))] justify-center md:justify-between md:gap-4 overflow-x-scroll scrollbar-none transition-all'>
     {
@@ -38,19 +38,31 @@ const VerticalCard = ({loading,data = []}) => {
              })
          ) : (
              data.map((product,index)=>{
+                const CategoryNames= {
+                    beauty: "Beauty",
+                    books: "Books",
+                    electronics: "Electronics",
+                    home: "Home, kitchen and pets",
+                    mensfashion: "Men's fashion",
+                    mobcom: 'Mobiles & Computers',
+                    sports: "Sports & Fitness",
+                    womensfashion: "Women's fashion",
+                  }
+                  const categoryName = CategoryNames[product?.category] || product?.category; 
+            
                  return(
                      <Link to={"/product/"+product?._id} className='w-full min-w-[280px]  md:min-w-[300px] max-w-[280px] md:max-w-[300px]  bg-white rounded-sm shadow ' onClick={scrollTop}>
-                         <div className='bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center'>
+                         <div className='bg-slate-50 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center'>
                              <img src={product?.productImage[0]} className='object-scale-down h-full hover:scale-110 transition-all mix-blend-multiply'/>
                          </div>
-                         <div className='p-4 grid gap-3'>
+                         <div className=' bg-slate-100 p-4 grid gap-3'>
                              <h2 className='font-medium text-base md:text-lg text-ellipsis line-clamp-1 text-black'>{product?.productName}</h2>
-                             <p className='capitalize text-slate-500'>{product?.category}</p>
+                             <p className='capitalize text-slate-500'>{categoryName}</p>
                              <div className='flex gap-3'>
-                                 <p className='text-red-600 font-medium'>{ displayINRCurrency(product?.sellingPrice) }</p>
-                                 <p className='text-slate-500 line-through'>{ displayINRCurrency(product?.price)  }</p>
+                                 <p className='text-green-600 font-medium'>{ displayINRCurrency(product?.sellingPrice) }</p>
+                                 <p className='text-red-500 line-through'>{ displayINRCurrency(product?.price)  }</p>
                              </div>
-                             <button className='text-sm bg-red-600 hover:bg-red-100 text-white px-3 py-1 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Add to Cart</button>
+                             <button className='text-sm bg-blue-600 hover:bg-custom-orange text-white px-3 py-1 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Add to Bag</button>
                          </div>
                      </Link>
                  )

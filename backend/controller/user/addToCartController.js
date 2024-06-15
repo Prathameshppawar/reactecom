@@ -8,7 +8,7 @@ const addToCartController = async(req,res)=>{
         // Check if the product is already in the current user's cart
         const isProductAvailable = await addToCartModel.findOne({ productId, userId: currentUser })
 
-        console.log("isProductAvailable  for cart  ",isProductAvailable)
+        // console.log("isProductAvailable  for cart  ",isProductAvailable)
 
         if(isProductAvailable){
             return res.json({

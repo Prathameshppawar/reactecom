@@ -85,10 +85,10 @@ const CategoryList = () => {
           productCategory.map((category, index) => {
             return(
               <Link to={"/product-category?category="+category.value} className='cursor-pointer flex flex-col items-center justify-center w-full' key={category.id}>
-                <div className='w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-slate-200 flex items-center justify-center'>
+                <div className='w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4  flex items-center justify-center'>
                   <img src={categoryImages[category.value]} alt={category.label} className='h-full object-scale-down mix-blend-multiply hover:scale-125 transition-all'/>
                 </div>
-                <p className='text-center text-sm md:text-base capitalize w-full'>{category.label}</p>
+                <p className='text-center text-custom-blue text-sm md:text-base capitalize w-full'>{category.label}</p>
               </Link>
             )
           })

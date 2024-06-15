@@ -8,7 +8,7 @@ const addtoWishlist = async(req,res)=>{
         // Check if the product is already in the current user's wishlist
         const isProductAvailable = await wishlistModel.findOne({ productId, userId: currentUser })
 
-        console.log("isProductAvailable  for wishlist ",isProductAvailable)
+        // console.log("isProductAvailable  for wishlist ",isProductAvailable)
 
         if(isProductAvailable){
             return res.json({
