@@ -24,3 +24,6 @@ UI updates at home, search product
 Product details image update
 Search products was showing the database names, gave it back sane names
 in vertical card product, we can remove the border, that also looks great
+added browser alert whenever logout is clicked.
+implemented opening any product in the cart and wishlist section directly from there
+UI changes in cart

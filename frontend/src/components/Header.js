@@ -27,21 +27,23 @@ const Header = () => {
   const [search,setSearch] = useState(searchQuery)
 
   const handleLogout = async() => {
-    const fetchData = await fetch(SummaryApi.logout_user.url,{
-      method : SummaryApi.logout_user.method,
-      credentials : 'include'
-    })
+    if (window.confirm('Are you sure you want to logout?')) {
+      const fetchData = await fetch(SummaryApi.logout_user.url, {
+        method: SummaryApi.logout_user.method,
+        credentials: 'include',
+      });
 
-    const data = await fetchData.json()
+      const data = await fetchData.json();
 
-    if(data.success){
-      toast.success(data.message)
-      dispatch(setUserDetails(null))
-      navigate("/")
-    }
+      if (data.success) {
+        toast.success(data.message);
+        dispatch(setUserDetails(null));
+        navigate("/");
+      }
 
-    if(data.error){
-      toast.error(data.message)
+      if (data.error) {
+        toast.error(data.message);
+      }
     }
 
   }
