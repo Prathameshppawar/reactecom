@@ -80,76 +80,46 @@ const Header = () => {
 
             <div className='flex items-center gap-7'>
                 
-                <div className='relative flex justify-center'>
-                  {/* {
-                    user?.role === ROLE.GENERAL && (
-                      <Link to={"/becomeseller"} className='whitespace-nowrap hidden bg-yellow-100 md:block hover:bg-slate-100 p-2 mx-4 rounded-xl' onClick={()=>setMenuDisplay(preve => !preve)}>Become a seller</Link>
-                    )
-                  } */}
+            <div className='relative flex justify-center' onMouseEnter={()=>setMenuDisplay(true)} onMouseLeave={()=>setMenuDisplay(false)}>
+              {
+                user?._id && (
+                  <div className='text-3xl cursor-pointer relative flex justify-center' title='Profile Options'>
+                    {
+                      user?.profilePic ? (
+                        <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
+                      ) : (
+                        <FcBusinessman />
+                      )
+                    }
+                  </div>
+                )
+              }
+              
+              {
+                menuDisplay && (
+                  <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded'>
+                    <nav>
+                      {
+                        user?.role === ROLE.ADMIN && (
+                          <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Admin Panel</Link>
+                        )
+                      }
+                      {
+                        user?.role === ROLE.GENERAL && (
+                          <Link to={"/becomeseller"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Become a seller</Link>
+                        )
+                      }
+                      {
+                        user?.role === ROLE.SELLER && (
+                          <Link to={"/upload"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Upload a product</Link>
+                        )
+                      }
+                    </nav>
+                  </div>
+                )
+              }
+            </div>
 
-
-                  {
-                    user?._id && (
-                      <div className='text-3xl cursor-pointer relative flex justify-center' onClick={()=>setMenuDisplay(preve => !preve)} title='Profile Options'>
-                        {
-                          user?.profilePic ? (
-                            <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
-                          ) : (
-                            // <FaRegCircleUser/>
-                            // <PiUserFill />
-                            // <ProfilePic />
-                            <FcBusinessman />
-                          )
-                        }
-                      </div>
-                    )
-                  }
-                  
-                  
-                  {
-                    menuDisplay && (
-                      <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded' >
-                        <nav>
-                          {
-                            user?.role === ROLE.ADMIN && (
-                              <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Admin Panel</Link>
-                            )
-                          }
-                         
-                        </nav>
-                      </div>
-                    )
-                  }
-                  {
-                    menuDisplay && (
-                      <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded' >
-                        <nav>
-                          {
-                            user?.role === ROLE.GENERAL && (
-                              <Link to={"/becomeseller"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Become a seller</Link>
-                            )
-                          }
-                         
-                        </nav>
-                      </div>
-                    )
-                  }
-                  {
-                    menuDisplay && (
-                      <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded' >
-                        <nav>
-                          {
-                            user?.role === ROLE.SELLER && (
-                              <Link to={"/upload"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Uploda a product</Link>
-                            )
-                          }
-                         
-                        </nav>
-                      </div>
-                    )
-                  }
-                 
-                </div>
                 {
                      user?._id && (
                       <Link to={"/wishlist"} className='text-2xl relative' title='Wishlist'>

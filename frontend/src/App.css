@@ -18,4 +18,6 @@
 .scrollbar-none::-webkit-scrollbar{
     display: none;
 }
-
+body {
+  @apply font-sans;
+}

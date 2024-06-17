@@ -124,8 +124,8 @@ const Cart = () => {
             "Content-Type":"application/json"
         }
 
-        const response = await fetch("http://localhost:8080/api/makepayment",{
-            method:"POST",
+        const response = await fetch(SummaryApi.makePayment.url,{
+            method:SummaryApi.makePayment.method,
             headers:headers,
             body:JSON.stringify(body)
         });

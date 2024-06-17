@@ -110,8 +110,8 @@ const ProductDetails = () => {
             "Content-Type":"application/json"
         }
 
-        const response = await fetch("http://localhost:8080/api/buypayment",{
-            method:"POST",
+        const response = await fetch(SummaryApi.buyPayment.url,{
+            method:SummaryApi.buyPayment.method,
             headers:headers,
             body:JSON.stringify(body)
         });

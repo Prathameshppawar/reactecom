@@ -27,3 +27,9 @@ in vertical card product, we can remove the border, that also looks great
 added browser alert whenever logout is clicked.
 implemented opening any product in the cart and wishlist section directly from there
 UI changes in cart
+Panel for becoming a seller or accesssing the admin interface has been updated to show options on hover
+
+
+poppins font implementation 
+add to cart button padding increase
+securing stripe routes
