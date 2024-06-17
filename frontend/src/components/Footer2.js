@@ -4,26 +4,32 @@ import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="bg-footer-blue text-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-8 py-8">
         <div className="flex flex-wrap justify-between">
-          <div className="w-full md:w-1/3 mb-8 md:mb-0">
+          <div className="w-full md:w-1/4 mb-8 md:mb-0">
             <h3 className="text-xl mb-4">Important Links</h3>
             <ul className="list-none">
               <li><a href="https://www.divegentechnologies.com/about-1-1" className="hover:underline">About Us</a></li>
               <li><a href="https://www.divegentechnologies.com/" className="hover:underline">Contact Us</a></li>
               <li><a href="https://www.divegentechnologies.com/blog" className="hover:underline">Blog</a></li>
-              <li><a href="" className="hover:underline">MVP Development</a></li>
+              
+            </ul>
+          </div>
+          <div className="w-full md:w-1/4 mb-8 md:mb-0">
+            <h3 className="text-xl mb-4">Services</h3>
+            <ul className="list-none">
+            <li><a href="" className="hover:underline">MVP Development</a></li>
               <li><a href="#" className="hover:underline">Software Development</a></li>
               <li><a href="#" className="hover:underline">Mobile App Development</a></li>
             </ul>
           </div>
-          <div className="w-full md:w-1/3 mb-8 md:mb-0">
+          <div className="w-full md:w-1/4 mb-8 md:mb-0">
             <h3 className="text-xl mb-4">Office Address</h3>
             <address>
             Sahakarnagar No.1, Pune 411009, Maharashtra, India
             </address>
           </div>
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/4">
             <h3 className="text-xl mb-4">Contact</h3>
             <p>info@divegentechnologies.com</p>
             <div className="flex mt-4">

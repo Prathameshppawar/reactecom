@@ -10,7 +10,8 @@ module.exports = {
       },
       colors: {
         'custom-orange': 'rgb(244,134,19)',
-        'custom-blue': 'rgb(0, 33, 94)'
+        'custom-blue': 'rgb(0, 33, 94)',
+        'footer-blue': 'rgb(45, 44, 118)'
       }
     },
   },
