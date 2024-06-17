@@ -18,15 +18,18 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-8 md:mb-0">
             <h3 className="text-xl mb-4">Services</h3>
             <ul className="list-none">
-            <li><a href="" className="hover:underline">MVP Development</a></li>
-              <li><a href="#" className="hover:underline">Software Development</a></li>
-              <li><a href="#" className="hover:underline">Mobile App Development</a></li>
+              <li><a href="https://www.divegentechnologies.com/services-7/mvp" className="hover:underline" target='_blank'>MVP Development</a></li>
+              <li><a href="https://www.divegentechnologies.com/copy-of-mobile-app-development-1" className="hover:underline" target='_blank'>Software Development</a></li>
+              <li><a href="https://www.divegentechnologies.com/copy-of-mobile-app-development-1" className="hover:underline"  target='_blank'>Mobile App Development</a></li>
             </ul>
           </div>
           <div className="w-full md:w-1/4 mb-8 md:mb-0">
             <h3 className="text-xl mb-4">Office Address</h3>
             <address>
-            Sahakarnagar No.1, Pune 411009, Maharashtra, India
+            Sahakarnagar No.1, Pune 411009,
+            </address>
+            <address>
+               Maharashtra, India
             </address>
           </div>
           <div className="w-full md:w-1/4">

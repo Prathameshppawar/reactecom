@@ -19,5 +19,20 @@
     display: none;
 }
 body {
-  @apply font-sans;
-}
+    @apply font-sans relative;
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../src/assets/bg.jpg);
+    background-repeat: repeat;
+    opacity: 0.05; /* Adjust this value to make the image milder */
+    z-index: -1;
+  }
+  
+  

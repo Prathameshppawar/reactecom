@@ -128,6 +128,19 @@ const ProductDetails = () => {
         }
 
   }
+  
+    const CategoryNames= {
+        beauty: "Beauty",
+        books: "Books",
+        electronics: "Electronics",
+        home: "Home, kitchen and pets",
+        mensfashion: "Men's fashion",
+        mobcom: 'Mobiles & Computers',
+        sports: "Sports & Fitness",
+        womensfashion: "Women's fashion",
+      }
+      const categoryName = CategoryNames[data?.category] || data?.category; 
+
 
   return (
     <div className='container mx-auto p-4'>
@@ -221,9 +234,9 @@ const ProductDetails = () => {
             ) : 
             (
               <div className='flex flex-col gap-1'>
-                <p className='bg-red-200 text-red-600 px-2 rounded-full inline-block w-fit'>{data?.brandName}</p>
+                <p className='bg-green-200 text-blue-600 px-2 rounded-full inline-block w-fit'>{data?.brandName}</p>
                 <h2 className='text-2xl lg:text-4xl font-medium'>{data?.productName}</h2>
-                <p className='capitalize text-slate-400'>{data?.category}</p>
+                <p className='capitalize text-slate-400'>{categoryName}</p>
 
                 {/* <div className='text-yellow-300 flex items-center gap-1'>
                     <FaStar/>

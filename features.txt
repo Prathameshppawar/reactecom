@@ -33,3 +33,6 @@ Panel for becoming a seller or accesssing the admin interface has been updated t
 poppins font implementation 
 add to cart button padding increase
 securing stripe routes
+added indian essence to the website
+fixed some product details tab (logo and recommendations)
+some changes to the header, reverting back

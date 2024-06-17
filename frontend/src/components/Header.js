@@ -80,45 +80,47 @@ const Header = () => {
 
             <div className='flex items-center gap-7'>
                 
-            <div className='relative flex justify-center' onMouseEnter={()=>setMenuDisplay(true)} onMouseLeave={()=>setMenuDisplay(false)}>
-              {
-                user?._id && (
-                  <div className='text-3xl cursor-pointer relative flex justify-center' title='Profile Options'>
+            
+              <div className='relative flex justify-center' onClick={()=>setMenuDisplay(!menuDisplay)}>
                     {
-                      user?.profilePic ? (
-                        <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
-                      ) : (
-                        <FcBusinessman />
+                      user?._id && (
+                        <div className='text-3xl cursor-pointer relative flex justify-center' title='Profile Options'>
+                          {
+                            user?.profilePic ? (
+                              <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
+                            ) : (
+                              <FcBusinessman />
+                            )
+                          }
+                        </div>
+                      )
+                    }
+                    
+                    {
+                      menuDisplay && (
+                        <div className='absolute bg-white top-full mt-1 h-fit p-2 shadow-lg rounded'>
+                          <nav>
+                            {
+                              user?.role === ROLE.ADMIN && (
+                                <Link to={"/admin-panel/all-products"} className='whitespace-nowrap block hover:bg-slate-100 p-2'>Admin Panel</Link>
+                              )
+                            }
+                            {
+                              user?.role === ROLE.GENERAL && (
+                                <Link to={"/becomeseller"} className='whitespace-nowrap block hover:bg-slate-100 p-2'>Become a seller</Link>
+                              )
+                            }
+                            {
+                              user?.role === ROLE.SELLER && (
+                                <Link to={"/upload"} className='whitespace-nowrap block hover:bg-slate-100 p-2'>Upload a product</Link>
+                              )
+                            }
+                          </nav>
+                        </div>
                       )
                     }
                   </div>
-                )
-              }
-              
-              {
-                menuDisplay && (
-                  <div className='absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded'>
-                    <nav>
-                      {
-                        user?.role === ROLE.ADMIN && (
-                          <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Admin Panel</Link>
-                        )
-                      }
-                      {
-                        user?.role === ROLE.GENERAL && (
-                          <Link to={"/becomeseller"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Become a seller</Link>
-                        )
-                      }
-                      {
-                        user?.role === ROLE.SELLER && (
-                          <Link to={"/upload"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2'>Upload a product</Link>
-                        )
-                      }
-                    </nav>
-                  </div>
-                )
-              }
-            </div>w
+
 
                 {
                      user?._id && (
