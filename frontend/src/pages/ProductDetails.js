@@ -253,7 +253,7 @@ const ProductDetails = () => {
 
                 <div className='flex items-center gap-3 my-2'>
                   <button className='border-2 border-custom-blue rounded px-3 py-1 min-w-[120px] text-cusotm-blue font-medium hover:bg-custom-blue hover:text-white' onClick={(e)=>handleBuyProduct(e,data?._id)}>Buy</button>
-                  <button className='border-2  rounded px-3 py-1 min-w-[120px] font-medium text-white bg-blue-600 hover: hover:bg-custom-orange' onClick={(e)=>handleAddToCart(e,data?._id)}>Add To Bag</button>
+                  <button className='border-2  rounded px-3 py-1 min-w-[120px] font-medium text-white bg-blue-600 hover: hover:bg-custom-orange' onClick={(e)=>handleAddToCart(e,data?._id)}>Add To Cart</button>
                   <button className='text-2xl px-2' onClick={(e)=>handleAddtoWishlist(e,data?._id)}><CiHeart /></button>
                   {/* <Heart isClick={isClick} onClick={(e)=>handleAddtoWishlist(e,data?._id)} /> */}
                   {/* <CiHeart className='' /> */}
