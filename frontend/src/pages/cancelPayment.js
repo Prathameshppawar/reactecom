@@ -1,6 +1,6 @@
 const cancelPayment = () => {
   return (
-    <div className="px-4 m-6">
+    <div className="px-4 m-6 display-flex flex-col justify-center items-center">
     <p>
     <p>Forgot to add something to your cart🛒? Shop🛍️ around then come back to pay!</p>
 

@@ -20,7 +20,7 @@ async function makePayment(req,res){
         
         }
         ),
-    console.log('price = ', products[0].productId.price)
+    // console.log('price = ', products[0].productId.price)
 );
     // console.log(lineItems[0].price_data.product_data)
 

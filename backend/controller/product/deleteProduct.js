@@ -2,7 +2,7 @@ const productModel = require('../../models/productModel')
 const uploadProductPermission = require('../../helpers/permission')
 
 async function deleteProductController(req, res) {
-    console.log(req.userId)
+    // console.log(req.userId)
     try {
         if (!uploadProductPermission(req.userId)) {
             throw new Error("Permission denied")
