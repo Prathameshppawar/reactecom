@@ -1,4 +1,4 @@
-Divegen Ecom react web-app
+Ecom react web-app
 
 secrets to have: 
 Backend .env file 
